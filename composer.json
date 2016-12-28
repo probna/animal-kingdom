@@ -1,6 +1,13 @@
 {
 	"require-dev" : {
 		"phpunit/phpunit" : "^5.7",
-		"phpspec/phpspec" : "^3.2"
+		"phpspec/phpspec" : "^3.2",
+		"memio/spec-gen" : "^0.6"
+	},
+	"autoload" : {
+        "psr-4" : {
+	        "" : "src/",
+            "spec\\" : "spec/"
+        }
 	}
 }
