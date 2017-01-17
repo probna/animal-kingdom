@@ -35,14 +35,28 @@ class BirdSpec extends ObjectBehavior {
      * Bird needs to be able to walk and fly as well
      *
      */
-    public function it_should_be_able_to_move_by_walking_AND_flying()
+    public function it_should_be_able_to_move_by_walking()
     {
-        $this->fly()->shouldReturn("I believe I can fly...");
-        $this->move()->shouldReturn("I can walk as well.");
+        $this->walk(5);
+        $this->getDistanceTraveled()->shouldReturn(5);
     }
 
+    /**
+     * Bird can fly
+     */
+    public function it_should_be_able_to_move_by_flying()
+    {
+        $this->fly(50);
+        $this->getDistanceTraveled()->shouldReturn(50);
+        $this->getWingFlapCount()->shouldReturn(250);
+    }
+
+    /**
+     * Bird needs to expire if health reaches zero
+     */
     public function it_should_be_able_to_expire_when_smashed_into_a_side_of_a_mountain()
     {
-        $this->expire()->shouldReturn("Navigation systems failed. I've flown into a mountain.");
+        $this->expire();
+        $this->IsAlive()->shouldBe(false);
     }
 }
