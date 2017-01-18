@@ -41,10 +41,19 @@ class BirdSpec extends ObjectBehavior {
         $this->getDistanceTraveled()->shouldReturn(5);
     }
 
-    public function it_should_be_able_to_expire_when_smashed_into_a_side_of_a_mountain()
+    /**
+     * Bird needs to be able to keep track of distance covered by flying
+     */
+    public function it_should_be_able_to_know_how_much_distance_was_covered_by_flying()
     {
-        $this->expire()->shouldReturn("Navigation systems failed. I've flown into a mountain.");
+        $this->fly(50);
+        $this->getDistanceTraveled()->shouldReturn(50);
+    }
 
+    public function it_should_be_able_to_calculate_wing_flap_count_required_for_certain_distance()
+    {
+        $this->calculateWingFlapCountFor(50)->shouldReturn(250);
+    }
 
     /**
      * Bird needs to expire if health reaches zero
