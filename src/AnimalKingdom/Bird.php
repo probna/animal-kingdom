@@ -9,6 +9,17 @@ namespace AnimalKingdom;
  */
 
 class Bird extends Animal implements Flying {
+
+    /**
+     * @var int $wingNumber Number of wings the bird has
+     */
+    protected $wingNumber = 2;
+
+    /**
+     * @var int $wingFlapCount Number of times the bird moved it's wings while flying
+     */
+    protected $wingFlapCount;
+
     /**
      * Allows bird to fly
      *
