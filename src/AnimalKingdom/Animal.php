@@ -77,8 +77,12 @@ abstract class Animal
      *
      * @return bool
      */
-    public function IsAlive()
+    public function isAlive()
     {
-        return (bool)$this->health;
+        if ($this->health > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
