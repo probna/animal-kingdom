@@ -53,7 +53,7 @@ abstract class Animal
      *
      * @param int $distance The amount of distance animal needs to move
      */
-    abstract public function move($distance);
+    abstract public function move(int $distance);
 
     /**
      * Animal expires
@@ -77,7 +77,7 @@ abstract class Animal
      *
      * @return bool
      */
-    public function isAlive()
+    public function isAlive(): bool
     {
         if ($this->health > 0) {
             return true;
@@ -85,4 +85,6 @@ abstract class Animal
             return false;
         }
     }
+
+
 }

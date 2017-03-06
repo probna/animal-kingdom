@@ -43,9 +43,9 @@ class LionSpec extends ObjectBehavior {
      */
     public function it_should_be_able_to_feast_on_rabbits(Rabbit $rabbit)
     {
-        $rabbit->expire()->willReturn("Oh, the horror...");
+        $rabbit->expire()->shouldBeCalled();
         $this->feastOnRabbit($rabbit)->shouldReturn("I'm not full, but it's better than eating grass!");
-        $rabbit->expire()->shouldHaveBeenCalled();
+        $rabbit->IsAlive()->willReturn(false);
     }
 
     /**
@@ -53,12 +53,16 @@ class LionSpec extends ObjectBehavior {
      */
     public function it_should_be_able_to_expire_when_shot_from_a_gun()
     {
-        $this->expire()->shouldReturn("a bang was heard...");
-        $this->getHealth()->shouldReturn(0);
+        $this->expire();
+        $this->IsAlive()->shouldReturn(false);
     }
 
+    /**
+     * Lion should be able to move across some distance
+     */
     public function it_should_move_graciously()
     {
-        $this->move()->shouldReturn("Purrr... I'm a kitty kat...");
+        $this->move(5000);
+        $this->getDistanceTraveled()->shouldReturn(5000);
     }
 }
