@@ -6,4 +6,5 @@ dependencies:
     - "vendor"
 test:
   override:
-    - ./vendor/bin/phpspec run
+    - ./vendor/bin/phpspec run -c etc/ci/phpspec.yml
+    
