@@ -21,7 +21,7 @@ class Rabbit extends Animal {
      *
      * @param int $distance The distance the rabbit needs to run
      */
-    public function move($distance)
+    public function move(int $distance)
     {
         if ($this->IsAlive()){
             $this->distanceTraveled += $distance;
