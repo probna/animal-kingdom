@@ -1,9 +1,9 @@
 formatter.name: progress
 extensions:
-  Cjm\PhpSpec\Extension\TypeHintedMethodsExtension: ~
-  PhpSpecCodeCoverage\CodeCoverageExtension: ~
+    Memio\SpecGen\MemioSpecGenExtension: ~
+    PhpSpecCodeCoverage\CodeCoverageExtension: ~
 code_coverage:
-  format:
-    - html
-  output:
-    html: build/phpspec/coverage
+    format:
+        - html
+    output:
+        html: build/phpspec/coverage
