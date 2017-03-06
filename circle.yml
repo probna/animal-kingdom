@@ -9,5 +9,6 @@ dependencies:
     - "vendor"
 test:
   override:
+    - mkdir -o build/phpspec/coverage
     - ./vendor/bin/phpspec run -c etc/ci/phpspec.yml
     
