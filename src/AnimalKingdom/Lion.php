@@ -16,9 +16,9 @@ class Lion extends Animal
      *
      * @return string
      */
-    public function move(): string
+    public function move(int $distance)
     {
-        return "Purrr... I'm a kitty kat...";
+        $this->distanceTraveled += $distance;
     }
 
 
@@ -33,9 +33,15 @@ class Lion extends Animal
         return "I'm not full, but it's better than eating grass!";
     }
 
-    public function expire()
+
+    /**
+     * Returns the amount of distance the animal has traveled
+     *
+     * @return int
+     */
+    public function getDistanceTraveled(): int
     {
-        parent::expire();
-        return "a bang was heard...";
+        return $this->distanceTraveled;
     }
+
 }

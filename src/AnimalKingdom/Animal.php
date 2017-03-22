@@ -3,13 +3,18 @@
 namespace AnimalKingdom;
 
 /**
- * Class Animal
+ * Abstract Class Animal
  *
- * Base class for all animals
+ * Base class for all animals to extend.
+ * Animal is instantiated with a clean bill of health, can move, knows how much distance it has traveled, and can
+ * expire when it's health reaches zero.
+ *
+ * We're not sure how to handle the expiration of an animal - should the object self destruct when reaching zero health?
  *
  * @package AnimalKingdom
  */
-class Animal
+
+abstract class Animal
 {
 
     /**
@@ -17,19 +22,23 @@ class Animal
      */
     protected $health;
 
+    /**
+     * @var int $distanceTraveled Keeps track of the distance the animal traveled
+     */
+    protected $distanceTraveled;
 
     /**
      * Constructs animal with full health
      *
      * @param int $health Animal health
      */
-    public function __construct(int $health)
-    {
+    public function __construct(int $health){
         $this->health = $health;
     }
 
     /**
      * Returns animal's health level
+     *
      * @return int
      */
     public function getHealth(): int
@@ -40,12 +49,11 @@ class Animal
     /**
      * Moves animal prototypically
      *
-     * @return string Confirms that protoanimal moves prototypically
+     * Animal just knows it needs to move a certain distance.
+     *
+     * @param int $distance The amount of distance animal needs to move
      */
-    public function move(): string
-    {
-        return "I move prototypically!";
-    }
+    abstract public function move(int $distance);
 
     /**
      * Animal expires
@@ -56,4 +64,27 @@ class Animal
     {
         $this->health = 0;
     }
+
+    /**
+     * Returns the amount of distance the animal has traveled
+     *
+     * @return int
+     */
+    abstract public function getDistanceTraveled(): int;
+
+    /**
+     * Check if animal is alive
+     *
+     * @return bool
+     */
+    public function isAlive(): bool
+    {
+        if ($this->health > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }
