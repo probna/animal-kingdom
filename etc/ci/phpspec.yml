@@ -1,0 +1,9 @@
+formatter.name: progress
+extensions:
+    Memio\SpecGen\MemioSpecGenExtension: ~
+    PhpSpecCodeCoverage\CodeCoverageExtension: ~
+code_coverage:
+    format:
+        - html
+    output:
+        html: build/phpspec/coverage
